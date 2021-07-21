@@ -26,7 +26,7 @@ def validate_main_menu(user_input):
     return switcher.get(user_input, (False, None))
 
 
-def display_customer_wallet_info(coins_list, total_value):
+def display_customer_wallet_info(total_value):
     """Takes in a list of ints to display number of coins along with total value of coins."""
     print('You have {coins_list[0]} Quarters')
     print('You have {coins_list[1]} Dimes')
