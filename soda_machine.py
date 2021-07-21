@@ -1,6 +1,6 @@
 from cans import Can
 from coins import  Coin
-from user_interface import user_interface
+import user_interface
 
 class SodaMachine:
     
