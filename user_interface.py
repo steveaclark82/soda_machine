@@ -11,7 +11,7 @@ class user_interface:
             print("\tPress -1- to check wallet for coins")
             print("\tPress -2- to check backpack for cans")
             print("\tPress -3- to terminate simulation")
-            user_input = try_parse_int(input())
+            user_input = int(input())
             validate_user_selection = validate_main_menu(user_input)
         return validate_user_selection[1]
 
@@ -77,7 +77,7 @@ class user_interface:
             for can in soda_options:
                 print("\n\tEnter -{i}- for {can} : ${can.price}")
                 i += 1
-            user_selection = try_parse_int(input("Selection:"))
+            user_selection = int(input("Selection:"))
             validated_user_selection = validate_coin_choice(user_selection, soda_options)
         return validated_user_selection[1]
 
@@ -135,7 +135,7 @@ class user_interface:
             print("\tEnter -N- for Nickel")
             print("\tEnter -P- for Penny")
             print("\tEnter -5- for when finished to deposit payment into machine")
-            user_input = try_parse_int(input())
+            user_input = int(input())
             validated_user_selection = validate_coin_selection(user_input)
         if validated_user_selection[0] is False:
             print("Not a valid selection try again")
