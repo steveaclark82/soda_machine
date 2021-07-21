@@ -1,3 +1,5 @@
+from wallet import Wallet
+from backpack import Backpack
 
 
 class Customer:
