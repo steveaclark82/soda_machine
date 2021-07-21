@@ -1,6 +1,6 @@
 from customer import Customer
 from soda_machine import SodaMachine
-from user_interface import user_interface
+import user_interface
 
 class Simulation:
     def __init__(self):
