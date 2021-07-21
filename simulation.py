@@ -3,6 +3,8 @@ from soda_machine import SodaMachine
 import user_interface
 
 class Simulation:
+
+
     def __init__(self):
         pass
 
