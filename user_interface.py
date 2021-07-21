@@ -1,6 +1,7 @@
 import os
 
 class user_interface:
+    
     def simulation_main_menu():
         """Main menu prompting user to choose an option"""
         validate_user_selection = (False, None)
@@ -75,7 +76,7 @@ class user_interface:
             i = 1
             for can in soda_options:
                 print("\n\tEnter -{i}- for {can} : ${can.price}")
-                i++
+                i += 1
             user_selection = try_parse_int(input("Selection:"))
             validated_user_selection = validate_coin_choice(user_selection, soda_options)
         return validated_user_selection[1]
@@ -136,8 +137,8 @@ class user_interface:
             print("\tEnter -5- for when finished to deposit payment into machine")
             user_input = try_parse_int(input())
             validated_user_selection = validate_coin_selection(user_input)
-            if validated_user_selection[0] is False:
-                print("Not a valid selection try again")
+        if validated_user_selection[0] is False:
+            print("Not a valid selection try again")
         return validated_user_selection[1]
 
 
@@ -155,6 +156,6 @@ class user_interface:
 
     def end_message(soda_name, change_amount):
         """Closing message displaying name of soda purchased and amount of change returned"""
-        print(f'Enjoy your {soda}')
+        print(f'Enjoy your {soda_name.name}')
         if change_amount >= 0:
             print(f'Dispensing ${change_amount}')
