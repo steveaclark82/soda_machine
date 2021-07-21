@@ -15,9 +15,9 @@ class Simulation:
         soda_machine = SodaMachine()
         will_proceed = False
         while will_proceed == False:
-            user_option = user_interface.simulation_main_menu() 
+            user_option = user_interface.simulation_main_menu()
             if user_option == 1:
-                soda_machine.begin_transaction(customer)
+                soda_machine.begin_transaction(Customer)
             elif user_option == 2:
                 customer.check_coins_in_wallet()
             elif user_option == 3:

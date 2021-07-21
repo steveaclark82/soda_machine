@@ -1,3 +1,4 @@
+import math
 from wallet import Wallet
 from backpack import Backpack
 import user_interface
@@ -7,6 +8,7 @@ class Customer:
     def __init__(self):
         self.wallet = Wallet()
         self.backpack = Backpack()
+        
 
     def gather_coins_from_wallet(self, selected_soda):
         """Method allowing user to choose coins from wallet for payment"""
@@ -57,7 +59,7 @@ class Customer:
                 coins_quantity[2] += 1
             elif coin.name == "Penny":
                 coins_quantity[3] -= 1
-        total_value = round(total_value, -2)
+        total_value = round(total_value, 2)
         user_interface.display_customer_wallet_info(coins_quantity, total_value)
 
     def check_backpack(self):
