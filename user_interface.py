@@ -2,7 +2,7 @@ import os
 
 class user_interface:
     
-    def simulation_main_menu():
+    def simulation_main_menu(validate_main_menu):
         """Main menu prompting user to choose an option"""
         validate_user_selection = (False, None)
         while validate_user_selection[0] is False:
@@ -36,7 +36,7 @@ class user_interface:
         print('Your wallet\'s total value is {total_value}')
 
 
-    def display_welcome():
+    def display_welcome(continue_prompt):
         """Initial method asking user if they'll make a purchase. No errors."""
         print("\nWelcome to the soda machine.  We only take coins as payment. \n")
         user_response = continue_prompt("Would you like to make a purchase? (y/n):")
@@ -67,7 +67,7 @@ class user_interface:
         return switcher.get(user_input, False)
 
 
-    def soda_selection(inventory):
+    def soda_selection(inventory, get_unique_can_names, validate_coin_choice):
         """Displays purchasable soda inventory and """
         validated_user_selection = (False, None)
         soda_options = get_unique_can_names(inventory)
@@ -126,7 +126,7 @@ class user_interface:
         print(f'You currently have ${total_payment_value} in hand')
 
 
-    def coin_selection():
+    def coin_selection(validate_coin_selection):
         """Prompts user to choose which coins to deposit and passes their selection in validate_coin_selection"""
         validated_user_selection = (False, None)
         while validated_user_selection[0] is False:
@@ -151,7 +151,7 @@ class user_interface:
             4: (True, "Penny"),
             5: (True, "Done")
         }
-        return switcher.get(selection, (False, None))
+        return switcher.get(selection, (True, None))
 
 
     def end_message(soda_name, change_amount):
