@@ -8,7 +8,7 @@ class Customer:
     def __init__(self):
         self.wallet = Wallet()
         self.backpack = Backpack()
-        self.wallet.fill_wallet()
+        
 
     def gather_coins_from_wallet(self, selected_soda):
         """Method allowing user to choose coins from wallet for payment"""
