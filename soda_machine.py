@@ -34,7 +34,7 @@ class SodaMachine:
 
     def begin_transaction(self, customer):
         """Method is complete. Initiates purchase if user decides to proceed. No errors."""
-        will_proceed = user_interface.display_welcome()
+        will_proceed = self.user_interface.display_welcome()
         if will_proceed:
             self.run_transaction(customer)
 
