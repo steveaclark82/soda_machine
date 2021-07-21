@@ -42,7 +42,7 @@ class SodaMachine:
 
         selected_soda_name = self.user_interface.soda_selection(self.inventory)
 
-        selected_soda = self.get_inventory_soda(selected_soda_name)
+        selected_soda_name = self.get_inventory_soda(selected_soda_name)
 
         customer_payment = customer.gather_coins_from_wallet(selected_soda_name)
 

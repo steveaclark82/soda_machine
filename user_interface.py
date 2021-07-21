@@ -10,9 +10,9 @@ def simulation_main_menu():
         print("\tPress -1- to check wallet for coins")
         print("\tPress -2- to check backpack for cans")
         print("\tPress -3- to terminate simulation")
-        user_input = try_parse_int(input("What option do you wanna choose"))
-        validate_user_selection = validate_main_menu(user_input)
-        return validate_user_selection[1]
+        user_input = try_parse_int(input("What option do you wanna choose: "))
+        validate_user_selection  = validate_main_menu(user_input )
+        return validate_user_selection[1], user_input
 
 
 def validate_main_menu(user_input):
