@@ -1,6 +1,6 @@
 from wallet import Wallet
 from backpack import Backpack
-from user_interface import UserInterface
+from user_interface import user_interface
 
 
 class Customer:
@@ -12,18 +12,18 @@ class Customer:
         """Method allowing user to choose coins from wallet for payment"""
         will_proceed = True
         customer_payment = []
-        UserInterface.output_text("Continue to add coins until you are ready to insert them into the machine")
+        user_interface.output_text("Continue to add coins until you are ready to insert them into the machine")
         while will_proceed:
-            UserInterface.display_can_cost(selected_soda)
-            UserInterface.display_payment_value(customer_payment)
-            coin_name = UserInterface.coin_selection()
+            user_interface.display_can_cost(selected_soda)
+            user_interface.display_payment_value(customer_payment)
+            coin_name = user_interface.coin_selection()
             if coin_name == "done":
                 break
             payment_coin = self.get_wallet_coin(coin_name)
             if payment_coin is not None:
                 customer_payment.append(payment_coin)
             else:
-                UserInterface.output_text("You do not have any of those coins, try again")
+                user_interface.output_text("You do not have any of those coins, try again")
         return customer_payment
 
     def get_wallet_coin(self, coin_name):
@@ -58,12 +58,12 @@ class Customer:
             elif coin.name == "Penny":
                 coins_quantity[3] -= 1
         total_value = round(total_value, -2)
-        UserInterface.display_customer_wallet_info(coins_quantity, total_value)
+        user_interface.display_customer_wallet_info(coins_quantity, total_value)
 
     def check_backpack(self):
         """Will display the cans contained in purchased_cans list in backpack"""
         if len(self.backpack.purchased_cans) == 0:
-            UserInterface.output_text("You have no cans in your backpack")
+            user_interface.output_text("You have no cans in your backpack")
         else:
             for can in Backpack.purchased_cans:
-                UserInterface.output_text(can.name)
+                user_interface.output_text(can.name)

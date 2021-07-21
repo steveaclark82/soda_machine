@@ -1,11 +1,13 @@
 from cans import Can
 from coins import  Coin
-from user_interface import User_interface
+from user_interface import user_interface
+
 class SodaMachine:
+    
     def __init__(self):
         self.register = []
         self.inventory = []
-        self.user_interface = User_interface
+        self.user_interface = user_interface
         self.coins = Coin
         self.cans = Can
     
