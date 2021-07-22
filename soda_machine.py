@@ -47,11 +47,11 @@ class SodaMachine:
 
         customer_payment = customer.gather_coins_from_wallet(selected_soda)
 
-        self.calculate_transaction(customer_payment, selected_soda_name, customer)
+        self.calculate_transaction(customer_payment,customer,selected_soda)
 
         self.user_interface.output_text("Transaction complete")
 
-    def calculate_transaction(self, customer_payment, selected_soda, customer):
+    def calculate_transaction(self, customer_payment,customer, selected_soda):
         total_payment_value = self.calculate_coin_value(customer_payment)
         if total_payment_value > selected_soda.price:
             change_value = self.determine_change_value(total_payment_value, selected_soda.price)
