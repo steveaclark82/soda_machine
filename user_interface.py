@@ -6,12 +6,12 @@ def simulation_main_menu():
     validate_user_selection = (False, None)
     while validate_user_selection[0] is False:
         print("\t\t-Simulation menu-")
-        print("\tPress -0- to begin transaction")
-        print("\tPress -1- to check wallet for coins")
-        print("\tPress -2- to check backpack for cans")
-        print("\tPress -3- to terminate simulation")
+        print("\tPress -1- to begin transaction")
+        print("\tPress -2- to check wallet for coins")
+        print("\tPress -3- to check backpack for cans")
+        print("\tPress -4- to terminate simulation")
         user_input = try_parse_int(input("What option do you wanna choose: "))
-        validate_user_selection  = validate_main_menu(user_input )
+        validate_user_selection  = validate_main_menu(user_input)
         return validate_user_selection[1], user_input
 
 
@@ -35,7 +35,7 @@ def display_customer_wallet_info(coins_list, total_value):
     print(f'Your wallet\'s total value is {total_value}')
 
 
-def display_welcome(continue_prompt):
+def display_welcome():
     """Initial method asking user if they'll make a purchase. No errors."""
     print("\nWelcome to the soda machine.  We only take coins as payment. \n")
     user_response = continue_prompt("Would you like to make a purchase? (y/n):")
@@ -66,7 +66,7 @@ def continue_prompt(text):
     return switcher.get(user_input, False)
 
 
-def soda_selection(inventory, get_unique_can_names, validate_coin_choice):
+def soda_selection(inventory):
     """Displays purchasable soda inventory and """
     validated_user_selection = (False, None)
     soda_options = get_unique_can_names(inventory)

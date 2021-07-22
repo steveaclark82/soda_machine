@@ -7,6 +7,7 @@ class SodaMachine:
     def __init__(self):
         self.register = []
         self.inventory = []
+
         self.user_interface = user_interface
         self.coins = Coin
         self.cans = Can
@@ -40,7 +41,7 @@ class SodaMachine:
 
     def run_transaction(self, customer):
 
-        selected_soda_name = self.user_interface.soda_selection(self.inventory)
+        selected_soda_name = user_interface.soda_selection(inventory)
 
         selected_soda_name = self.get_inventory_soda(selected_soda_name)
 
