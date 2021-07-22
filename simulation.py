@@ -20,7 +20,6 @@ class Simulation:
         will_proceed = False
         while will_proceed == False:
             user_option = user_interface.simulation_main_menu()
-            print(user_option)
             if user_option[0] == 1:
                 soda_machine.begin_transaction(customer)
             elif user_option[0] == 2:
@@ -28,4 +27,4 @@ class Simulation:
             elif user_option[0] == 3:
                 customer.check_backpack()
             else:
-                will_proceed = False
+                will_proceed = True

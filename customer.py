@@ -8,7 +8,7 @@ class Customer:
     def __init__(self):
         self.wallet = Wallet()
         self.backpack = Backpack()
-        
+        self.backpack.purchased_cans = []
 
     def gather_coins_from_wallet(self, selected_soda):
         """Method allowing user to choose coins from wallet for payment"""
@@ -58,7 +58,7 @@ class Customer:
             elif coin.name == "Nickel":
                 coins_quantity[2] += 1
             elif coin.name == "Penny":
-                coins_quantity[3] -= 1
+                coins_quantity[3] += 1
         total_value = round(total_value, 2)
         user_interface.display_customer_wallet_info(coins_quantity, total_value)
 
@@ -67,5 +67,5 @@ class Customer:
         if len(self.backpack.purchased_cans) == 0:
             user_interface.output_text("You have no cans in your backpack")
         else:
-            for can in Backpack.purchased_cans:
+            for can in self.backpack.purchased_cans:
                 user_interface.output_text(can.name)
