@@ -15,6 +15,8 @@ class Simulation:
         customer = Customer()
         customer.wallet.fill_wallet()
         soda_machine = SodaMachine()
+        soda_machine.fill_inventory()
+        soda_machine.fill_register()
         will_proceed = False
         while will_proceed == False:
             user_option = user_interface.simulation_main_menu()
