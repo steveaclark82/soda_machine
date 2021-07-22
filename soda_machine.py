@@ -1,37 +1,37 @@
-from cans import Can
-from coins import  Coin
+from cans import Can, Cola, OrangeSoda, RootBeer
+from coins import  Coin, Quarter, Dime, Nickel, Penny 
 import user_interface
 
 class SodaMachine:
     
     def __init__(self):
         self.register = []
-        self.inventory = []
+        self.inventory =[]
 
         self.user_interface = user_interface
-        self.coins = Coin
-        self.cans = Can
+        self.coins = []
+        
     
     
     def fill_register(self):
         """Method will fill SodaMachine's register with certain amounts of each coin when called."""
         for index in range(8):
-            self.register.append(self.coins.Quarter())
+            self.register.append(Quarter())
         for index in range(10):
-            self.register.append(self.coins.Dime())
+            self.register.append(Dime())
         for index in range(20):
-            self.register.append(self.coins.Nickel())
+            self.register.append(Nickel())
         for index in range(50):
-            self.register.append(self.coins.Penny())
+            self.register.append(Penny())
 
     def fill_inventory(self):
         """Method will fill SodaMachine's cans list with certain amounts of each can when called."""
         for index in range(10):
-            self.inventory.append(self.cans.Cola())
+            self.inventory.append(Cola())
         for index in range(10):
-            self.inventory.append(self.cans.OrangeSoda())
+            self.inventory.append(OrangeSoda())
         for index in range(10):
-            self.inventory.append(self.cans.RootBeer())
+            self.inventory.append(RootBeer())
 
     def begin_transaction(self, customer):
         """Method is complete. Initiates purchase if user decides to proceed. No errors."""
@@ -41,11 +41,11 @@ class SodaMachine:
 
     def run_transaction(self, customer):
 
-        selected_soda_name = user_interface.soda_selection(inventory)
+        selected_soda_name = user_interface.soda_selection(self.inventory)
 
-        selected_soda_name = self.get_inventory_soda(selected_soda_name)
+        selected_soda = self.get_inventory_soda(selected_soda_name)
 
-        customer_payment = customer.gather_coins_from_wallet(selected_soda_name)
+        customer_payment = customer.gather_coins_from_wallet(selected_soda)
 
         self.calculate_transaction(customer_payment, selected_soda_name, customer)
 
@@ -128,7 +128,7 @@ class SodaMachine:
     def get_inventory_soda(self, selected_soda_name):
         """Returns the first instance of a can whose name matches the selected_soda_name parameter"""
         for can in self.inventory:
-            if can == selected_soda_name:
+            if can.name == selected_soda_name:
                 self.inventory.remove(can)
                 return can
         return None
